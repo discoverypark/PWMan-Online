@@ -1,0 +1,28 @@
+<html>
+
+<body>
+	<form method=post>
+		<p>Name: <input type=text name=name></p>
+		<p>Username: <input type=text name=uname></p>
+        <p>Password: 
+            <input id=passwordField type=password name=pwd>
+            <input type=checkbox onclick=toggleShowPass()>Show Password
+        </p>
+		<p>URL: <input type=text name=url></p>
+        <p><input type=submit value=Submit></p>
+        </form>
+
+</body>
+
+<script>
+    function toggleShowPass()
+    {
+        var x = document.getElementById("passwordField");
+        if(x.type === "password"){
+            x.type = "text";
+        } else{
+            x.type = "password"
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,26 @@
+<script src="https://www.google.com/recaptcha/api.js">
+</script>
+<script>
+	function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+</script>
+<button class="g-recaptcha" 
+        data-sitekey="6Lf6ptYZAAAAAKpQeSYathiekdCTBEokjXzvowGg" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button>
+<script src="https://www.google.com/recaptcha/api.js?render=6Lf6ptYZAAAAAKpQeSYathiekdCTBEokjXzvowGg"></script>
+<script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Lf6ptYZAAAAAKpQeSYathiekdCTBEokjXzvowGg', {action: 'submit'}).then(function(token) {
+                var formData = new FormData();
+                formData.append("token", token);
+
+                var request = new XMLHttpRequest();
+                request.open("POST", "/captchaToken");
+                request.send(formData);
+            });
+      }
+</script>
